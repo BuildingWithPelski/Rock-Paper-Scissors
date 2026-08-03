@@ -28,7 +28,7 @@
        function playRound(HumanChoice, ComputerChoice){
             if (HumanChoice === ComputerChoice){
                 console.log("It's a tie!")
-                return "HumanChoice";
+                return "tie";
             } else if (HumanChoice === 'rock' && ComputerChoice === 'scissors'){
                 console.log("You win! Rock beats scissors.")
                 return "HumanChoice";
@@ -67,9 +67,13 @@
                 let winner = playRound(HumanChoice, ComputerChoice);
                 if (winner === "HumanChoice"){
                     humanscore++;
-                } else if (winner === "ComputerChoice"){
+                } else if (winner === "tie"){
+                    computerscore+0;
+                    humanscore+0;
+                } else {
                     computerscore++;
                 }
+
 
                 console.log("Human Score: " + humanscore);
                 console.log("Computer Score: " + computerscore);
