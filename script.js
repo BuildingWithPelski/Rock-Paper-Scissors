@@ -1,0 +1,77 @@
+ function gethumanChoice(){
+            let HumanChoice =(prompt("Please enter your choice: rock, paper, or scissors").toLowerCase());
+            return HumanChoice;
+        }
+       let HumanChoice = gethumanChoice()
+       
+       function getComputerChoice(){
+            let computerChoiceIndex = Math.floor(Math.random() * 3)
+            if (computerChoiceIndex === 0){
+                return "rock"
+            } else if (computerChoiceIndex === 1){
+                return "paper"
+            } else {
+                return "scissors"
+            }
+       }
+       
+         let ComputerChoice = getComputerChoice()
+
+       function playRound(HumanChoice, ComputerChoice){
+            if (HumanChoice === ComputerChoice){
+                console.log("It's a tie!")
+                return "tie";
+            } else if (HumanChoice === 'rock' && ComputerChoice === 'scissors'){
+                console.log("You win! Rock beats scissors.")
+                return "HumanChoice";
+            } else if (HumanChoice === 'rock' && ComputerChoice === 'paper'){
+                console.log("You lose! Paper beats rock.")
+                return "ComputerChoice";
+            } else if (HumanChoice === 'paper' && ComputerChoice === 'rock'){
+                console.log("You win! Paper beats rock.")
+                return "HumanChoice";
+            } else if (HumanChoice === 'paper' && ComputerChoice === 'scissors'){
+                console.log("You lose! Scissors beats paper.")
+                return "ComputerChoice";
+            } else if (HumanChoice === 'scissors' && ComputerChoice === 'paper'){
+                console.log("You win! Scissors beats paper.")
+                return "HumanChoice";
+            } else if (HumanChoice === 'scissors' && ComputerChoice === 'rock'){
+                console.log("You lose! Rock beats scissors.")
+                return "ComputerChoice";
+            } else {
+                console.log("Invalid choice. Please enter rock, paper, or scissors.")
+                return "Invalid choice. Please enter rock, paper, or scissors.";
+            }
+       }
+
+
+        
+        function playGame(){
+            let humanscore = 0;
+            let computerscore = 0;
+
+            for (let i = 0; i < 5; i++){
+
+                let HumanChoice = gethumanChoice();
+                let ComputerChoice = getComputerChoice();
+
+                let winner = playRound(HumanChoice, ComputerChoice);
+                if (winner === "HumanChoice"){
+                    humanscore++;
+                } else if (winner === "tie"){
+                    computerscore+0;
+                    humanscore+0;
+                } else {
+                    computerscore++;
+                }
+
+
+                console.log("Human Score: " + humanscore);
+                console.log("Computer Score: " + computerscore);
+
+            }    
+            
+
+        }
+        playGame()
